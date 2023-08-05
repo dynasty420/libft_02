@@ -6,7 +6,7 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:12:19 by yut               #+#    #+#             */
-/*   Updated: 2023/07/31 00:18:31 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/05 21:53:07 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,11 @@ size_t	ft_strlen(const char *s)
 		len++;
 	return (len);
 }
+
+// int main()
+// {
+// 	char *ptr = ft_strdup("hello");
+// 	printf("%s\n", ptr);
+// 	printf("%p\n", ptr);
+// 	printf("%lu\n", sizeof(ptr));
+// }

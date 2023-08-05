@@ -6,7 +6,7 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 02:03:59 by yut               #+#    #+#             */
-/*   Updated: 2023/07/31 09:57:48 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/05 22:46:33 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,15 @@ void	ft_bzero(void *s, size_t n)
 	tmp = s;
 	while (i < n)
 	{
-		tmp[i] = 0;
+		tmp[i] = '\0';
 		i++;
 	}
 }
+
+// int main()
+// {
+// 	char *ptr = ft_calloc(10, 10);
+// 	printf("%s\n", ptr);
+// 	printf("%p\n", ptr);
+// 	printf("%lu\n", sizeof(ptr));
+// }

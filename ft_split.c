@@ -6,17 +6,34 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:53:38 by yut               #+#    #+#             */
-/*   Updated: 2023/07/23 15:19:51 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/05 22:50:52 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	ft_cntwrd(char const *s, char c);
-int			store_word(char **ans, int k, int strlen, char *src);
-char		**ft_setwords(char **ans, char *str, char c, int strs_count);
-char		**ft_split(char const *s, char c);
+static int	store_word(char **ans, int k, int strlen, char *src);
+static char	**ft_setwords(char **ans, char *str, char c, int strs_count);
 static void	*ft_free(char **str, int cntr);
+
+char	**ft_split(char const *s, char c)
+{
+	int		strs_count;
+	char	**ans;
+	char	**result;
+
+	if (s == NULL)
+		return (NULL);
+	strs_count = ft_cntwrd(s, c);
+	ans = (char **)malloc(sizeof(char *) * (strs_count + 1));
+	if (ans == NULL)
+		return (NULL);
+	result = ft_setwords(ans, (char *)s, c, strs_count);
+	if (result == NULL)
+		return (NULL);
+	return (result);
+}
 
 static int	ft_cntwrd(char const *s, char c)
 {
@@ -40,7 +57,7 @@ static int	ft_cntwrd(char const *s, char c)
 	return (cntr);
 }
 
-int	store_word(char **ans, int k, int strlen, char *src)
+static int	store_word(char **ans, int k, int strlen, char *src)
 {
 	int	i;
 
@@ -51,7 +68,7 @@ int	store_word(char **ans, int k, int strlen, char *src)
 		return (0);
 	}
 	i = 0;
-	while (i < strlen && src[i] != '\0')
+	while (i < strlen)
 	{
 		ans[k][i] = src[i];
 		i++;
@@ -60,7 +77,7 @@ int	store_word(char **ans, int k, int strlen, char *src)
 	return (1);
 }
 
-char	**ft_setwords(char **ans, char *str, char c, int strs_count)
+static char	**ft_setwords(char **ans, char *str, char c, int strs_count)
 {
 	int	i;
 	int	k;
@@ -86,24 +103,6 @@ char	**ft_setwords(char **ans, char *str, char c, int strs_count)
 	return (ans);
 }
 
-char	**ft_split(char const *s, char c)
-{
-	int		strs_count;
-	char	**ans;
-	char	**result;
-
-	if (s == NULL)
-		return (NULL);
-	strs_count = ft_cntwrd(s, c);
-	ans = (char **)malloc(sizeof(char *) * (strs_count + 1));
-	if (ans == NULL)
-		return (NULL);
-	result = ft_setwords(ans, (char *)s, c, strs_count);
-	if (result == NULL)
-		return (NULL);
-	return (result);
-}
-
 static void	*ft_free(char **str, int cntr)
 {
 	int	i;
@@ -120,8 +119,10 @@ static void	*ft_free(char **str, int cntr)
 
 // int	main(void)
 // {
-// 	// char	**expected = ft_split("\0aa\0bbb", '\0');
-// 	char *str = "aa  bbb";
+// 	char	**expected = ft_split("daadbbb", 'd');
+// 	printf("The result is: %s\n", expected[0]);
+// 	printf("The result is: %s\n", expected[1]);
+// 	char *str = "aa  bbb cc";
 // 	char **result = ft_split(str, ' ');
 // 	printf("The result is: %s\n", result[0]);
 // 	printf("The result is: %s\n", result[1]);

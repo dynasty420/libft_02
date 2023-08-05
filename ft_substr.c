@@ -6,11 +6,21 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:42:05 by yut               #+#    #+#             */
-/*   Updated: 2023/07/31 00:31:36 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/05 22:44:48 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	return (len);
+}
 
 char	*ft_strdup(const char *s1)
 {
@@ -30,16 +40,6 @@ char	*ft_strdup(const char *s1)
 	return (dest);
 }
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
-
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*tmp;
@@ -51,7 +51,7 @@ void	ft_bzero(void *s, size_t n)
 	tmp = s;
 	while (i < n)
 	{
-		tmp[i] = 0;
+		tmp[i] = '\0';
 		i++;
 	}
 }
@@ -76,9 +76,9 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 
 	if (s == NULL)
 		return (NULL);
-	if (start > ft_strlen(s))
+	if (ft_strlen(s) - start < 0)
 		return (ft_strdup(""));
-	if (len > ft_strlen(s) - start)
+	if (ft_strlen(s) - start < len)
 		len = ft_strlen(s) - start;
 	str = ft_calloc(len + 1, sizeof(char));
 	if (str == NULL)

@@ -6,24 +6,24 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:20:36 by yut               #+#    #+#             */
-/*   Updated: 2023/07/23 15:49:36 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/05 22:50:41 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	int_len(long nbr);
-static char	*pre_conv(int len);
+static int	res_len(ssize_t nbr);
+static char	*pre_conv(size_t len);
 
 char	*ft_itoa(int n)
 {
-	int			len;
-	int			i;
-	char		*result;
-	long long	nbr;
+	size_t	len;
+	size_t	i;
+	ssize_t	nbr;
+	char	*result;
 
 	nbr = n;
-	len = int_len(nbr);
+	len = res_len(nbr);
 	result = pre_conv(len);
 	if (result == NULL)
 		return (NULL);
@@ -42,40 +42,40 @@ char	*ft_itoa(int n)
 	return (result);
 }
 
-static char	*pre_conv(int len)
+static char	*pre_conv(size_t len)
 {
-	char	*tmp;
+	char	*result;
 
-	tmp = malloc((len + 1) * sizeof(char));
-	if (tmp == NULL)
+	result = malloc((len + 1) * sizeof(char));
+	if (result == NULL)
 		return (NULL);
-	tmp[0] = '0';
-	return (tmp);
+	result[0] = '\0';
+	return (result);
 }
 
-static int	int_len(long nbr)
+static int	res_len(ssize_t nbr)
 {
-	int	count;
+	size_t	len;
 
-	count = 0;
+	len = 0;
 	if (nbr < 0)
 	{
 		nbr = -nbr;
-		count++;
+		len++;
 	}
 	if (nbr == 0)
-		count++;
+		len++;
 	while (nbr != 0)
 	{
 		nbr = nbr / 10;
-		count++;
+		len++;
 	}
-	return (count);
+	return (len);
 }
 
 // int main()
 // {
-//  	int a = -5;
+//  	int a = INT_MAX + 10LU;
 //  	char *result = ft_itoa(a);
 //  	printf("The result is: %s\n", result);
 //  	return (0);
