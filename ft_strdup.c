@@ -18,7 +18,6 @@ char	*ft_strdup(const char *s1)
 	size_t	len;
 
 	len = ft_strlen(s1);
-
 	dest = (char *)malloc(len + 1);
 	if (dest == NULL)
 		return (NULL);
@@ -30,6 +29,6 @@ char	*ft_strdup(const char *s1)
 // {
 // 	char *ptr1 = ft_strdup("hello");
 // 	char *ptr2 = strdup("hello");
-	
+
 // 	printf("%d\n",(ptr1 == ptr2));
 // }
