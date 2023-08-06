@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ytorigoe <ytorigoe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:20:36 by yut               #+#    #+#             */
-/*   Updated: 2023/08/06 19:32:17 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/06 20:08:33 by ytorigoe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ static char	*res_dup(size_t len)
 	result = malloc((len + 1) * sizeof(char));
 	if (result == NULL)
 		return (NULL);
-	result[0] = '\0';
 	return (result);
 }
 
