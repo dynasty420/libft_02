@@ -6,13 +6,11 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:23:37 by yut               #+#    #+#             */
-/*   Updated: 2023/08/05 22:46:29 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/06 15:29:18 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s);
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
@@ -41,15 +39,15 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	return (s3);
 }
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
+// size_t	ft_strlen(const char *s)
+// {
+// 	size_t	len;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
+// 	len = 0;
+// 	while (s[len] != '\0')
+// 		len++;
+// 	return (len);
+// }
 
 // #include <string.h>
 

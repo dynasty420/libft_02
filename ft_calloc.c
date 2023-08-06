@@ -6,13 +6,11 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 02:03:59 by yut               #+#    #+#             */
-/*   Updated: 2023/08/05 22:46:33 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/06 17:35:49 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	ft_bzero(void *s, size_t n);
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -25,22 +23,6 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	ft_bzero(ptr, count * size);
 	return (ptr);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	unsigned char	*tmp;
-	size_t			i;
-
-	i = 0;
-	if (n == 0)
-		return ;
-	tmp = s;
-	while (i < n)
-	{
-		tmp[i] = '\0';
-		i++;
-	}
 }
 
 // int main()

@@ -6,7 +6,7 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:20:36 by yut               #+#    #+#             */
-/*   Updated: 2023/08/05 22:50:41 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/06 17:37:31 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ char	*ft_itoa(int n)
 
 	nbr = n;
 	len = res_len(nbr);
-	result = pre_conv(len);
+	result = res_dup(len);
 	if (result == NULL)
 		return (NULL);
+	if (nbr == 0)
+		result[0] = '0';
 	if (nbr < 0)
 		nbr = -nbr;
 	i = len - 1;
@@ -42,7 +44,7 @@ char	*ft_itoa(int n)
 	return (result);
 }
 
-static char	*pre_conv(size_t len)
+static char	*res_dup(size_t len)
 {
 	char	*result;
 
@@ -75,8 +77,9 @@ static int	res_len(ssize_t nbr)
 
 // int main()
 // {
-//  	int a = INT_MAX + 10LU;
-//  	char *result = ft_itoa(a);
-//  	printf("The result is: %s\n", result);
+//  	printf("The result is: %s\n", ft_itoa(0));
+//  	printf("The result is: %s\n", ft_itoa(-0));
+//  	printf("The result is: %s\n", ft_itoa(+0));
+
 //  	return (0);
 // }

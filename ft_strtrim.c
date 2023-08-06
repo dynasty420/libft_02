@@ -6,61 +6,63 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:42:05 by yut               #+#    #+#             */
-/*   Updated: 2023/08/05 22:21:31 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/06 17:29:20 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	to_trim(const char *set, char c);
-static char	*new_str(const char *s1, size_t start, size_t end);
-char		*ft_strtrim(const char *s1, const char *set);
+static char	*new_str(const char *str, size_t start, size_t end);
+char		*ft_strtrim(const char *str, const char *set);
 
-char	*ft_strtrim(const char *s1, const char *set)
+char	*ft_strtrim(const char *str, const char *set)
 {
-	int	i;
-	int	j;
+	size_t	start;
+	ssize_t	end;
+	size_t	len;
 
-	if (s1 == NULL || set == NULL)
+	if (str == NULL || set == NULL)
 		return (NULL);
-	i = 0;
-	j = ft_strlen(s1) - 1;
-	while (to_trim(set, s1[i]) == 1)
-		i++;
-	while (to_trim(set, s1[j]) == 1)
-		j--;
-	return (new_str(s1, i, j - i + 1));
+	start = 0;
+	end = ft_strlen(str) - 1;
+	while (to_trim(set, str[start]) == 1)
+		start++;
+	while (to_trim(set, str[end]) == 1)
+		end--;
+	len = end - start + 1;
+	return (new_str(str, start, len));
 }
 
-static char	*new_str(const char *s1, size_t start, size_t end)
+static char	*new_str(const char *str, size_t start, size_t len)
 {
-	char	*str;
+	char	*new_str;
 	size_t	i;
 
-	if (end == 0 || start == ft_strlen(s1))
+	if (len == 0 || start >= ft_strlen(str))
 		return (ft_strdup(""));
-	str = ft_calloc(end + 1, sizeof(char));
+	new_str = ft_calloc(len + 1, sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
-	while (i < end)
+	while (i < len)
 	{
-		str[i] = s1[start + i];
+		new_str[i] = str[start + i];
 		i++;
 	}
-	return (str);
+	return (new_str);
 }
 
 static int	to_trim(const char *set, char c)
 {
-	int	i;
+	int	k;
 
-	i = 0;
-	while (set[i] != '\0')
+	k = 0;
+	while (set[k] != '\0')
 	{
-		if (set[i] == c)
+		if (set[k] == c)
 			return (1);
-		i++;
+		k++;
 	}
 	return (0);
 }

@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/06 16:42:05 by yut               #+#    #+#             */
-/*   Updated: 2023/08/06 18:45:14 by yut              ###   ########.fr       */
+/*   Created: 2023/05/18 05:29:44 by yut               #+#    #+#             */
+/*   Updated: 2023/07/22 18:18:44 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+size_t	ft_strlen(const char *s)
 {
-	size_t	i;
-	char	*str;
+	size_t	len;
 
-	if (s == NULL)
-		return (NULL);
-	if (ft_strlen(s) < start)
-		return (ft_strdup(""));
-	if (ft_strlen(s) < start + len)
-		len = ft_strlen(s) - start;
-	str = ft_calloc(len + 1, sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	return (str);
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	return (len);
 }
+
+// #include <ctype.h>
+// #include <stdio.h>
+// #include <string.h>
 
 // int	main(void)
 // {
-// 	printf("L : %s\n", ft_substr("Helllioooo",3,4));
+// 	printf("%zu\n", strlen("Hello"));
+//     printf("%zu\n", ft_strlen("Hello"));
 // }

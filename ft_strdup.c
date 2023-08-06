@@ -6,13 +6,11 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:12:19 by yut               #+#    #+#             */
-/*   Updated: 2023/08/05 21:53:07 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/06 15:29:22 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s);
 
 char	*ft_strdup(const char *s1)
 {
@@ -32,15 +30,15 @@ char	*ft_strdup(const char *s1)
 	return (dest);
 }
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
+// size_t	ft_strlen(const char *s)
+// {
+// 	size_t	len;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
+// 	len = 0;
+// 	while (s[len] != '\0')
+// 		len++;
+// 	return (len);
+// }
 
 // int main()
 // {
