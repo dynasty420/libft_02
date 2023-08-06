@@ -6,7 +6,7 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:23:37 by yut               #+#    #+#             */
-/*   Updated: 2023/08/06 15:29:18 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/06 18:58:52 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*s3;
 	size_t	i;
-	size_t	n;
+	size_t	j;
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
@@ -29,13 +29,13 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		s3[i] = s1[i];
 		i++;
 	}
-	n = 0;
-	while (s2[n] != '\0')
+	j = 0;
+	while (s2[j] != '\0')
 	{
-		s3[i + n] = s2[n];
-		n++;
+		s3[i + j] = s2[j];
+		j++;
 	}
-	s3[i + n] = '\0';
+	s3[i + j] = '\0';
 	return (s3);
 }
 
