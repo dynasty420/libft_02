@@ -6,14 +6,14 @@
 /*   By: yut <yut@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:20:36 by yut               #+#    #+#             */
-/*   Updated: 2023/08/06 17:37:31 by yut              ###   ########.fr       */
+/*   Updated: 2023/08/06 19:32:17 by yut              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	res_len(ssize_t nbr);
-static char	*pre_conv(size_t len);
+static char	*res_dup(size_t len);
 
 char	*ft_itoa(int n)
 {
